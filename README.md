@@ -15,6 +15,7 @@ PostgREST is a standalone web server that turns your PostgreSQL database directl
 - DBeaver [23.0.3]
 - Visual Studio Code [1.77.3]
 - git version 2.38.0.windows.1
+- Postman v10.14.6
 - Microsoft Windows [Versión 10.0.19044.2486]
 
 
