@@ -40,7 +40,7 @@ Usage: postgrest [-e|--example] [--dump-config | --dump-schema] [FILENAME]
 
 ### Step 4. Create Database for API
 
-- Connect to psql
+- Connect to **postgres** database
 ```
 psql -U postgres
 ```
@@ -84,11 +84,36 @@ grant web_anon to authenticator;
 
 ### Step 5. Run PostgREST
 
+- PostgREST can use a configuration file to tell it how to connect to the database. Create a file tutorial.conf with this inside:
+```
+db-uri = "postgres://authenticator:mysecretpassword@localhost:5432/postgres"
+db-schemas = "api"
+db-anon-role = "web_anon"
+```
 
+- Run the server:
+```
+postgrest tutorial.conf
+29/May/2023:16:22:40 +0200: Attempting to connect to the database...
+29/May/2023:16:22:40 +0200: Connection successful
+29/May/2023:16:22:40 +0200: Listening on port 3000
+29/May/2023:16:22:40 +0200: Listening for notifications on the pgrst channel
+29/May/2023:16:22:40 +0200: Config reloaded
+29/May/2023:16:22:43 +0200: Schema cache loaded
+```
+
+- It’s now ready to serve web requests. Try doing an HTTP request for the todos.
+```
+curl http://localhost:3000/todos
+
+[{"id":1,"done":false,"task":"finish tutorial 0","due":null},
+ {"id":2,"done":false,"task":"pat self on back","due":null}]
+```
 
 
 ## Doc
 
 - https://postgrest.org/
 - https://postgrest.org/en/stable/tutorials/tut0.html
+- https://postgrest.org/en/stable/references/configuration.html#configuration
 
