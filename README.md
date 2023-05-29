@@ -110,6 +110,26 @@ curl http://localhost:3000/todos
  {"id":2,"done":false,"task":"pat self on back","due":null}]
 ```
 
+- With the current role permissions, anonymous requests have read-only access to the todos table. If we try to add a new todo we are not able.
+- **linux**
+```
+curl http://localhost:3000/todos -X POST \
+     -H "Content-Type: application/json" \
+     -d '{"task": "do bad thing"}'
+
+```
+- **windows**
+```
+curl http://localhost:3000/todos -X POST ^
+-H "Content-Type: application/json" ^
+-d "{\"task\": \"do bad thing\"}"
+```
+
+- Response is 401 Unauthorized:
+```
+{"code":"42501","details":null,"hint":null,"message":"permiso denegado a la tabla todos"}
+```
+
 
 ## Doc
 
