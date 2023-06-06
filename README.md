@@ -135,6 +135,6 @@ curl http://localhost:3000/todos -X POST ^
 ## Doc
 
 - https://postgrest.org/
-- https://postgrest.org/en/stable/tutorials/tut0.html
 - https://postgrest.org/en/stable/references/configuration.html#configuration
-
+- https://postgrest.org/en/stable/tutorials/tut0.html
+- https://postgrest.org/en/stable/tutorials/tut1.html#tut1
