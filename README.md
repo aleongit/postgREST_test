@@ -23,12 +23,22 @@ PostgREST is a standalone web server that turns your PostgreSQL database directl
 
 - [Tutorial 0 - Get it Running](tutorial0.md)
 - [Tutorial 1 - The Golden Key](tutorial1.md)
+- [Test Tables and Views](tablesviews.md)
 
 
-## Run
-- cd postgREST_test
-- **postgrest tutorial.conf**
+## Run Tutorial
+- in schema **api** of the database **postgres**
+```
+cd postgREST_test
+postgrest tutorial.conf
+```
 
+## Run Test Tables and Views
+- in schema **public** of the database **dvdrental**
+```
+cd postgREST_test
+postgrest dvdrental.conf
+```
 
 ## Doc
 
@@ -37,6 +47,7 @@ PostgREST is a standalone web server that turns your PostgreSQL database directl
 - https://postgrest.org/en/stable/references/configuration.html#configuration
 - https://postgrest.org/en/stable/tutorials/tut0.html
 - https://postgrest.org/en/stable/tutorials/tut1.html#tut1
+- https://postgrest.org/en/stable/references/api/tables_views.html
 
 + **Password generator in cmd batch**
 - https://superuser.com/questions/280802/what-command-line-tool-can-generate-passwords-on-windows

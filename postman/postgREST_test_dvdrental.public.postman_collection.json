@@ -1,0 +1,29 @@
+{
+	"info": {
+		"_postman_id": "b18033b0-4127-416b-98c0-c686831bea47",
+		"name": "postgREST_test_dvdrental.public",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22809377"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/film",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/film",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"film"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
