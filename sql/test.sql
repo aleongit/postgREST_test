@@ -30,7 +30,7 @@ grant all on api.todos to todo_user;
 grant usage, select on sequence api.todos_id_seq to todo_user;
 
 
-
+select extract(epoch from now() + '5 minutes'::interval) :: integer;
 
 -- query test ______________________________________________
 SELECT * FROM api.todos;
