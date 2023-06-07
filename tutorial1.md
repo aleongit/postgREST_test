@@ -107,5 +107,79 @@ curl http://localhost:3000/todos
 
 ### Step 5. Add Expiration
 
+- Currently our authentication token is valid for all eternity. The server, as long as it continues using the same JWT password, will honor the token.
+
+- It’s better policy to include an **expiration timestamp** for tokens using the **exp** claim. This is one of two JWT claims that PostgREST treats specially.
+
+| Claim     | Interpretation                                                   |
+| :------   |:---------------                                                  |
+| **role**  | The database role under which to execute SQL for API request     |
+| **exp**   | Expiration timestamp for token, expressed in “Unix epoch time”   |
+
+- Epoch time is defined as the number of seconds that have elapsed since 00:00:00 Coordinated Universal Time (UTC), January 1st 1970, minus the number of leap seconds that have taken place since then.
+
+- To observe expiration in action, we’ll add an exp claim of five minutes in the future to our previous token. First find the epoch value of five minutes from now. In psql run this:
+```
+select extract(epoch from now() + '5 minutes'::interval) :: integer;
+```
+
+- Go back to **[jwt.io](https://jwt.io)** and change the payload to
+```
+{
+  "role": "todo_user",
+  "exp": 1686137263
+}
+```
+- 1686137263 = dimecres 7 de juny de 2023 a les 13:27:43 GMT+02:00 DST
+
+- https://jwt.io/#debugger-io?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidG9kb191c2VyIiwiZXhwIjoxNjg2MTM3MjYzfQ.0DkENV0MYuBPcnox0KTmQtmUfzDuls6ahSgz6cRfEUo
+
+- **token**
+- eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidG9kb191c2VyIiwiZXhwIjoxNjg2MTM3MjYzfQ.0DkENV0MYuBPcnox0KTmQtmUfzDuls6ahSgz6cRfEUo
+
+- Copy the updated token as before, and save it as a new environment variable.
+```
+export NEW_TOKEN="<paste new token>"
+```
+
+- Try issuing this request in curl before and after the expiration time:
+- **linux**
+```
+curl http://localhost:3000/todos \
+     -H "Authorization: Bearer $NEW_TOKEN"
+```
+
+- **windows**
+```
+set NEW_TOKEN="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidG9kb191c2VyIiwiZXhwIjoxNjg2MTM3MjYzfQ.0DkENV0MYuBPcnox0KTmQtmUfzDuls6ahSgz6cRfEUo"
+
+curl http://localhost:3000/todos ^
+-H "Authorization: Bearer %NEW_TOKEN%"
+```
+
+```
+curl http://localhost:3000/todos ^
+-H "Authorization: Bearer %NEW_TOKEN%"
+[{"id":1,"done":true,"task":"finish tutorial 0","due":null},
+ {"id":2,"done":true,"task":"pat self on back","due":null},
+ {"id":3,"done":true,"task":"learn how to auth","due":null},
+ {"id":5,"done":true,"task":"do bad thing","due":null}]
+
+curl http://localhost:3000/todos ^
+-H "Authorization: Bearer %NEW_TOKEN%"
+{"code":"PGRST301","details":null,"hint":null,"message":"JWT expired"}
+```
+
+- After expiration, the API returns HTTP 401 Unauthorized:
+```
+{
+  "hint": null,
+  "details": null,
+  "code": "PGRST301",
+  "message": "JWT expired"
+}
+``` 
+
+
 ### Bonus Topic: Immediate Revocation
 

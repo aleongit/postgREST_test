@@ -41,3 +41,6 @@ PostgREST is a standalone web server that turns your PostgreSQL database directl
 + **Password generator in cmd batch**
 - https://superuser.com/questions/280802/what-command-line-tool-can-generate-passwords-on-windows
 - https://stackoverflow.com/questions/34802042/password-generator-in-cmd-batch
+
++ **EpochConverter** Epoch & Unix Timestamp Conversion Tools
+- https://www.epochconverter.com/
