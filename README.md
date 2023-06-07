@@ -6,10 +6,12 @@ PostgREST is a standalone web server that turns your PostgreSQL database directl
 ## Requeriments
 
 - PostgreSQL 15.0
+- setx /m PATH "%PATH%;C:\Program Files\PostgreSQL\15\bin" [windows]
 
 
 ## Environment
 
+- PostgREST 11.0.1
 - PostgreSQL 15.2, compiled by Visual C++ build 1914, 64-bit
 - pgAdmin4 [6.21]
 - DBeaver [23.0.3]
