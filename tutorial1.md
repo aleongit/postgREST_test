@@ -34,7 +34,7 @@ cmd/randomalpha.cmd
 
 - Open the **tutorial.conf** and add a line with the password:
 ```
-jwt-secret = "<the password you made>"
+jwt-secret = "2oCYskZtdxZEXC7zpL6rbcbgkasEh9M7"
 ```
 
 
@@ -48,7 +48,8 @@ jwt-secret = "<the password you made>"
 
 - https://jwt.io/#debugger-io?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidG9kb191c2VyIn0.3UW2DAERMO--EAUrET80WhjVgl8hLSxcJGDcnI84w3Q
 
-- **eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidG9kb191c2VyIn0.3UW2DAERMO--EAUrET80WhjVgl8hLSxcJGDcnI84w3Q**
+- **token**
++ **eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidG9kb191c2VyIn0.3UW2DAERMO--EAUrET80WhjVgl8hLSxcJGDcnI84w3Q**
 
 - While the token may look well obscured, it’s easy to reverse engineer the payload. The token is merely signed, not encrypted, so don’t put things inside that you don’t want a determined client to see.
 
