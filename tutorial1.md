@@ -32,7 +32,24 @@ cmd/randomalpha.cmd
 2D$h0M17WpMDT@x~gbneLoHPzx%vPV7h
 ```
 
+- Open the **tutorial.conf** and add a line with the password:
+```
+jwt-secret = "<the password you made>"
+```
+
+
 ### Step 3. Sign a Token
+
+- Ordinarily your own code in the database or in another server will create and sign authentication tokens, but for this tutorial we will make one “by hand.” 
+
+- Go to **[jwt.io](https://jwt.io)** and fill in the fields like this:
+
+![Screenshot](screenshots/token_jwt.io.png)
+
+https://jwt.io/#debugger-io?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidG9kb191c2VyIn0.3UW2DAERMO--EAUrET80WhjVgl8hLSxcJGDcnI84w3Q
+
+- While the token may look well obscured, it’s easy to reverse engineer the payload. The token is merely signed, not encrypted, so don’t put things inside that you don’t want a determined client to see.
+
 
 ### Step 4. Make a Request
 
