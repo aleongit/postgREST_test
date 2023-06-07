@@ -53,7 +53,56 @@ jwt-secret = "<the password you made>"
 - While the token may look well obscured, it’s easy to reverse engineer the payload. The token is merely signed, not encrypted, so don’t put things inside that you don’t want a determined client to see.
 
 
+
 ### Step 4. Make a Request
+
+- Back in the terminal, let’s use **curl** to add a todo. The request will include an HTTP header containing the authentication token.
+
+- **linux**
+```
+export TOKEN="<paste token here>"
+
+curl http://localhost:3000/todos -X POST \
+     -H "Authorization: Bearer $TOKEN"   \
+     -H "Content-Type: application/json" \
+     -d '{"task": "learn how to auth"}'
+```
+
+- **windows**
+```
+set TOKEN="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidG9kb191c2VyIn0.3UW2DAERMO--EAUrET80WhjVgl8hLSxcJGDcnI84w3Q"
+
+echo %TOKEN%
+
+curl http://localhost:3000/todos -X POST ^
+-H "Authorization: Bearer %TOKEN%"   ^
+-H "Content-Type: application/json" ^
+-d "{\"task\": \"learn how to auth\"}"
+```
+
+- And now we have completed all three items in our todo list, so let’s set **done** to true for them all with a PATCH request.
+
+- **linux**
+```
+curl http://localhost:3000/todos -X PATCH \
+     -H "Authorization: Bearer $TOKEN"    \
+     -H "Content-Type: application/json"  \
+     -d '{"done": true}'
+```
+
+- **windows**
+```
+curl http://localhost:3000/todos -X PATCH ^
+-H "Authorization: Bearer %TOKEN%"   ^
+-H "Content-Type: application/json" ^
+-d "{\"done\": true}"
+```
+
+- A request for the todos shows three of them, and all completed.
+```
+curl http://localhost:3000/todos
+```
+
 
 ### Step 5. Add Expiration
 
