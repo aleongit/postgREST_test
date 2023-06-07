@@ -15,4 +15,4 @@ grant select on ALL TABLES IN SCHEMA public to web_anon;
 
 
 -- query test ______________________________________________
-SELECT * FROM film;
+SELECT * FROM film ORDER BY title asc;

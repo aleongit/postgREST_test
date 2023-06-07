@@ -40,6 +40,27 @@ cd postgREST_test
 postgrest dvdrental.conf
 ```
 
+
+## Sample for Test Tables and Views
+```
+Load PostgreSQL Sample Database
+https://www.postgresqltutorial.com/postgresql-getting-started/load-postgresql-sample-database/
+
+. download sample
+https://www.postgresqltutorial.com/postgresql-getting-started/postgresql-sample-database/
+
+psql -U postgres
+CREATE DATABASE dvdrental;
+exit;
+
+cd C:\Program Files\PostgreSQL\15\bin
+pg_restore -U postgres -d dvdrental C:\APP\sampledb\dvdrental.tar
+
+psql -U postgres
+\connect dvdrental
+```
+
+
 ## Doc
 
 + **postgrest**
