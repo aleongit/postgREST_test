@@ -26,7 +26,12 @@ PostgREST is a standalone web server that turns your PostgreSQL database directl
 
 ## Doc
 
++ **postgrest**
 - https://postgrest.org/
 - https://postgrest.org/en/stable/references/configuration.html#configuration
 - https://postgrest.org/en/stable/tutorials/tut0.html
 - https://postgrest.org/en/stable/tutorials/tut1.html#tut1
+
++ **Password generator in cmd batch**
+- https://superuser.com/questions/280802/what-command-line-tool-can-generate-passwords-on-windows
+- https://stackoverflow.com/questions/34802042/password-generator-in-cmd-batch

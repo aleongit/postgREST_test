@@ -16,6 +16,22 @@ grant usage, select on sequence api.todos_id_seq to todo_user;
 
 ### Step 2. Make a Secret
 
+- Clients authenticate with the API using JSON Web Tokens. These are JSON objects which are cryptographically signed using a password known to only us and the server. Because clients do not know the password, they cannot tamper with the contents of their tokens. PostgREST will detect counterfeit tokens and will reject them.
+
+- Let’s create a password and provide it to PostgREST. Think of a nice long one, or use a tool to generate it. **Your password must be at least 32 characters long**.
+
+- **linux**
+```
+echo "$(LC_CTYPE=C < /dev/urandom tr -dc A-Za-z0-9 | head -c32 )"
+2oCYskZtdxZEXC7zpL6rbcbgkasEh9M7
+```
+
+- **windows**
+```
+cmd/randomalpha.cmd
+2D$h0M17WpMDT@x~gbneLoHPzx%vPV7h
+```
+
 ### Step 3. Sign a Token
 
 ### Step 4. Make a Request
