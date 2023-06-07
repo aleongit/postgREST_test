@@ -8,7 +8,7 @@ PostgREST is a standalone web server that turns your PostgreSQL database directl
 - PostgreSQL 15.0
 
 
-## Developing versions
+## Environment
 
 - PostgreSQL 15.2, compiled by Visual C++ build 1914, 64-bit
 - pgAdmin4 [6.21]
@@ -23,6 +23,12 @@ PostgREST is a standalone web server that turns your PostgreSQL database directl
 
 - [Tutorial 0 - Get it Running](tutorial0.md)
 - [Tutorial 1 - The Golden Key](tutorial1.md)
+
+
+## Run
+- cd postgREST_test
+- **postgrest tutorial.conf**
+
 
 ## Doc
 
