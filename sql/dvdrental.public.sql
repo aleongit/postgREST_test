@@ -15,4 +15,13 @@ grant select on ALL TABLES IN SCHEMA public to web_anon;
 
 
 -- query test ______________________________________________
-SELECT * FROM film ORDER BY title asc;
+SELECT * FROM film;
+SELECT * FROM product;
+SELECT * FROM actor;
+SELECT * FROM city;
+SELECT * FROM address;
+SELECT * FROM customer;
+
+SELECT * FROM film WHERE length < 50;
+
+SELECT * FROM customer WHERE customer_id >= 598 AND activebool IS TRUE;

@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "http://localhost:3000/film",
+			"name": "/film",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -20,6 +20,60 @@
 					"port": "3000",
 					"path": [
 						"film"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/film?length=lt.50",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/film?length=lt.50",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"film"
+					],
+					"query": [
+						{
+							"key": "length",
+							"value": "lt.50"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/customer?customer_id=gte.598&activebool=is.true",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/customer?customer_id=gte.598&activebool=is.true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"customer"
+					],
+					"query": [
+						{
+							"key": "customer_id",
+							"value": "gte.598"
+						},
+						{
+							"key": "activebool",
+							"value": "is.true"
+						}
 					]
 				}
 			},
