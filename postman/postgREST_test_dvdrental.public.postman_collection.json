@@ -153,6 +153,81 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "/film?select=film_id,title",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/film?select=film_id,title",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"film"
+					],
+					"query": [
+						{
+							"key": "select",
+							"value": "film_id,title"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/film?select=id:film_id,titol:title",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/film?select=id:film_id,titol:title",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"film"
+					],
+					"query": [
+						{
+							"key": "select",
+							"value": "id:film_id,titol:title"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/film?select=title,rental_rate,rental_rate::text",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/film?select=title,rental_rate,rental_rate::text",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"film"
+					],
+					"query": [
+						{
+							"key": "select",
+							"value": "title,rental_rate,rental_rate::text"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

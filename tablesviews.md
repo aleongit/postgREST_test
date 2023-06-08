@@ -87,5 +87,27 @@ curl "http://localhost:3000/film?title=like(any).\{O*,P*\}"
 
 
 ### Vertical Filtering (Columns)
+
+- When certain columns are wide (such as those holding binary data), it is more efficient for the server to withhold them in a response. The client can specify which columns are required using the **sql:select** parameter.
+```
+curl "http://localhost:3000/film?select=film_id,title"
+```
+
+#### Renaming Columns
+
+- You can rename the columns by prefixing them with an alias followed by the colon **:** operator.
+```
+curl "http://localhost:3000/film?select=id:film_id,titol:title"
+```
+
+#### Casting Columns
+
+- Casting the columns is possible by suffixing them with the double colon **::** plus the desired type.
+```
+curl "http://localhost:3000/film?select=title,rental_rate,rental_rate::text"
+```
+
+
+
 ### JSON Columns
 ...
