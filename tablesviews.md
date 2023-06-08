@@ -125,3 +125,30 @@ curl "http://localhost:3000/people?order=age.desc.nullslast"
 ```
 
 ### Limits and Pagination
+
+- PostgREST uses HTTP range headers to describe the size of results. Every response contains the current range and, if requested, the total number of results:
+```
+HTTP/1.1 200 OK
+Range-Unit: items
+Content-Range: 0-14/*
+```
+
+- Here items zero through fourteen are returned. This information is available in every response and can help you render pagination controls on the client. This is an RFC7233-compliant solution that keeps the response JSON cleaner.
+
+- There are two ways to apply a limit and offset rows: through **request headers** or **query parameters**. 
+
+- When using **headers** you specify the range of rows desired. This request gets the first twenty items.
+```
+curl "http://localhost:3000/film" -i \
+  -H "Range-Unit: items" \
+  -H "Range: 0-19"
+```
+
+- You may also request open-ended ranges for an offset with no limit, e.g. **Range: 10-**
+
+- The other way to request a limit or offset is with **query parameters**.
+```
+curl "http://localhost:3000/film?limit=3&offset=10"
+```
+
+### Exact Count

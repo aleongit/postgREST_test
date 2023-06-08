@@ -253,6 +253,63 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "/film?select=film_id,title with headers",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Range-Unit",
+						"value": "items"
+					},
+					{
+						"key": "Range",
+						"value": "0-19"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/film",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"film"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/film?select=film_id,title with query parameters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/film?limit=5&offset=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"film"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "5"
+						},
+						{
+							"key": "offset",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
