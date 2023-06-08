@@ -228,6 +228,31 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "/film?order=title.asc,length.desc",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/film?order=title.asc,length.desc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"film"
+					],
+					"query": [
+						{
+							"key": "order",
+							"value": "title.asc,length.desc"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

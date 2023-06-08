@@ -107,7 +107,21 @@ curl "http://localhost:3000/film?select=id:film_id,titol:title"
 curl "http://localhost:3000/film?select=title,rental_rate,rental_rate::text"
 ```
 
-
-
 ### JSON Columns
-...
+### Composite / Array Columns
+### Computed / Virtual Columns
+
+### Ordering
+
+- The reserved **word** order reorders the response rows. It uses a comma-separated list of columns and directions:
+```
+curl "http://localhost:3000/film?order=title.asc,length.desc"
+```
+
+- If you care where nulls are sorted, add **nullsfirst** or **nullslast**
+```
+curl "http://localhost:3000/people?order=age.nullsfirst"
+curl "http://localhost:3000/people?order=age.desc.nullslast"
+```
+
+### Limits and Pagination
