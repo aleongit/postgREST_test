@@ -18,6 +18,7 @@ SELECT current_database();
 grant usage on schema public to todo_user;
 grant all on ALL TABLES IN SCHEMA public to todo_user;
 -- grant usage, select on sequence api.todos_id_seq to todo_user;
+GRANT USAGE, select ON ALL SEQUENCES IN SCHEMA public to todo_user;
 
 
 
@@ -41,3 +42,4 @@ SELECT DISTINCT release_year FROM film;
 
 SELECT film_id, title, release_year FROM film ORDER BY title asc;
 
+SELECT * FROM film ORDER BY film_id desc;

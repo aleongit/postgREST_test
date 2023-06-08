@@ -165,3 +165,46 @@ curl "http://localhost:3000/film?select=film_id,title&title=like(any).{B%}" \
   -X PATCH -H "Content-Type: application/json" \
   -d '{ "release_year": 2007 }'
 ```
+
+## Insert
+
+- All tables and auto-updatable views can be modified through the API, subject to permissions of the requester’s database role.
+
+- To create a row in a database table post a JSON object whose keys are the names of the columns you would like to create. Missing properties will be set to default values when applicable.
+```
+curl "http://localhost:3000/film" \
+  -X POST -H "Content-Type: application/json" \
+  -d '{ 
+    "title": "Django Unchained", 
+    "release_year": 2012,
+    "language_id": 1
+}'
+```
+
+- If the table has a primary key, the response can contain a **Location** header describing where to find the new object by including the header **Prefer: return=headers-only** in the request. Make sure that the table is not write-only, otherwise constructing the **Location** header will cause a permissions error.
+
+On the other end of the spectrum you can get the full created object back in the response to your request by including the header **Prefer: return=representation**. That way you won’t have to make another HTTP call to discover properties that may have been filled in on the server side. You can also apply the standard Vertical Filtering (Columns) to these results.
+
+URL encoded payloads can be posted with **Content-Type: application/x-www-form-urlencoded**
+```
+curl "http://localhost:3000/film" \
+  -X POST -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "title=Pulp Fiction&release_year=1994&language_id=1"
+```
+
+- When inserting a row you must post a JSON object, not quoted JSON.
+```
+Yes
+{ "a": 1, "b": 2 }
+
+No
+"{ \"a\": 1, \"b\": 2 }"
+```
+
+Some JavaScript libraries will post the data incorrectly if you’re not careful. For best results try one of the Client-Side Libraries built for PostgREST.
+
+### Bulk Insert
+### Bulk Insert with Default Values
+### Specifying Columns
+
+## Upsert
