@@ -78,6 +78,81 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "/film?or=(length.lt.50,length.gt.180)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/film?or=(length.lt.50,length.gt.180)",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"film"
+					],
+					"query": [
+						{
+							"key": "or",
+							"value": "(length.lt.50,length.gt.180)"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/film?title=like(any).{O*,P*}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/film?title=like(any).{O*,P*}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"film"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "like(any).{O*,P*}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/film?title=like(all).{O*,*n}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/film?title=like(all).{O*,*n}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"film"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "like(all).{O*,*n}"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

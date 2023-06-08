@@ -25,7 +25,7 @@ PostgREST is a standalone web server that turns your PostgreSQL database directl
 
 - [Tutorial 0 - Get it Running](tutorial0.md)
 - [Tutorial 1 - The Golden Key](tutorial1.md)
-- [Test Tables and Views](tablesviews.md)
+- [Tables and Views](tablesviews.md)
 
 
 ## Run Tutorial
@@ -35,7 +35,7 @@ cd postgREST_test
 postgrest tutorial.conf
 ```
 
-## Run Test Tables and Views
+## Run Tables and Views
 - in schema **public** of the database **dvdrental**
 ```
 cd postgREST_test
@@ -43,7 +43,7 @@ postgrest dvdrental.conf
 ```
 
 
-## Sample for Test Tables and Views
+## Sample for Tables and Views
 ```
 Load PostgreSQL Sample Database
 https://www.postgresqltutorial.com/postgresql-getting-started/load-postgresql-sample-database/

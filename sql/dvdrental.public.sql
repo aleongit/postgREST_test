@@ -25,3 +25,10 @@ SELECT * FROM customer;
 SELECT * FROM film WHERE length < 50;
 
 SELECT * FROM customer WHERE customer_id >= 598 AND activebool IS TRUE;
+
+SELECT * FROM film WHERE length < 50 OR length > 180;
+
+
+
+
+

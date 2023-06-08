@@ -12,13 +12,11 @@ curl "http://localhost:3000/film"
 ### Horizontal Filtering (Rows)
 
 - You can filter result rows by adding conditions on columns.
-
 ```
 curl "http://localhost:3000/film?length=lt.50"
 ```
 
 - You can evaluate multiple conditions on columns by adding more query string parameters.
-
 ```
 curl "http://localhost:3000/customer?customer_id=gte.598&activebool=is.true"
 ```
@@ -45,7 +43,48 @@ curl "http://localhost:3000/fresh_stories"
 
 
 #### Logical operators
-...
+
+- Multiple conditions on columns are evaluated using **and** by default, but you can combine them using **or** with the or operator.
+```
+curl "http://localhost:3000/film?or=(length.lt.50,length.gt.180)"
+```
+
+- To negate any operator, you can prefix it with **not** 
+- ?a=not.eq.2 or ?not.and=(a.gte.0,a.lte.100)
+
+- You can also apply complex logic to the conditions:
+```
+curl "http://localhost:3000/people?grade=gte.90&student=is.true&or=(age.eq.14,not.and(age.gte.11,age.lte.17))"
+```
+
+
+#### Operator Modifiers
+
+- You may further simplify the logic using the **any/all** modifiers of **eq,like,ilike,gt,gte,lt,lte,match,imatch**
+- any (= or)
+- all (= and)
+
+```
+curl "http://localhost:3000/film?title=like(any).{O*,P*}"
+curl "http://localhost:3000/film?title=like(all).{O*,*n}"
+```
+- in **windows** escape with **\\**
+```
+curl "http://localhost:3000/film?title=like(any).\{O*,P*\}"
+```
+
+
+#### Pattern Matching
+
+- **like, ilike, match, imatch**
+- https://www.postgresql.org/docs/current/functions-matching.html
+
+
+#### Full-Text Search
+
+- https://www.postgresql.org/docs/current/datatype-textsearch.html
+
+
 
 ### Vertical Filtering (Columns)
 ### JSON Columns
