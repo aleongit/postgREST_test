@@ -310,6 +310,107 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "/film?select=film_id,title with total count in headers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/film?limit=5&offset=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"film"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "5"
+						},
+						{
+							"key": "offset",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/film?select=film_id,title&title=like(any).{B%}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/film?select=film_id,title&title=like(any).{B%}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"film"
+					],
+					"query": [
+						{
+							"key": "select",
+							"value": "film_id,title"
+						},
+						{
+							"key": "title",
+							"value": "like(any).{B%}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/film?select=film_id,title&title=like(any).{B%}",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidG9kb191c2VyIn0.3UW2DAERMO--EAUrET80WhjVgl8hLSxcJGDcnI84w3Q",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"release_year\": 2007 }"
+				},
+				"url": {
+					"raw": "http://localhost:3000/film?select=film_id,title&title=like(any).{B%}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"film"
+					],
+					"query": [
+						{
+							"key": "select",
+							"value": "film_id,title"
+						},
+						{
+							"key": "title",
+							"value": "like(any).{B%}"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

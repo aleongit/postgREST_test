@@ -151,4 +151,17 @@ curl "http://localhost:3000/film" -i \
 curl "http://localhost:3000/film?limit=3&offset=10"
 ```
 
+
 ### Exact Count
+### Planned Count
+### Estimated Count
+
+
+## Update
+
+- To update a row or rows in a table, use the **PATCH** verb. Use Horizontal Filtering (Rows) to specify which record(s) to update
+```
+curl "http://localhost:3000/film?select=film_id,title&title=like(any).{B%}" \
+  -X PATCH -H "Content-Type: application/json" \
+  -d '{ "release_year": 2007 }'
+```
