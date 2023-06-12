@@ -183,9 +183,9 @@ curl "http://localhost:3000/film" \
 
 - If the table has a primary key, the response can contain a **Location** header describing where to find the new object by including the header **Prefer: return=headers-only** in the request. Make sure that the table is not write-only, otherwise constructing the **Location** header will cause a permissions error.
 
-On the other end of the spectrum you can get the full created object back in the response to your request by including the header **Prefer: return=representation**. That way you won’t have to make another HTTP call to discover properties that may have been filled in on the server side. You can also apply the standard Vertical Filtering (Columns) to these results.
+- On the other end of the spectrum you can get the full created object back in the response to your request by including the header **Prefer: return=representation**. That way you won’t have to make another HTTP call to discover properties that may have been filled in on the server side. You can also apply the standard Vertical Filtering (Columns) to these results.
 
-URL encoded payloads can be posted with **Content-Type: application/x-www-form-urlencoded**
+- URL encoded payloads can be posted with **Content-Type: application/x-www-form-urlencoded**
 ```
 curl "http://localhost:3000/film" \
   -X POST -H "Content-Type: application/x-www-form-urlencoded" \
@@ -201,10 +201,21 @@ No
 "{ \"a\": 1, \"b\": 2 }"
 ```
 
-Some JavaScript libraries will post the data incorrectly if you’re not careful. For best results try one of the Client-Side Libraries built for PostgREST.
+- Some JavaScript libraries will post the data incorrectly if you’re not careful. For best results try one of the Client-Side Libraries built for PostgREST.
 
 ### Bulk Insert
 ### Bulk Insert with Default Values
 ### Specifying Columns
 
 ## Upsert
+
+## Delete
+
+- To delete rows in a table, use the **DELETE** verb plus Horizontal Filtering (Rows).
+```
+curl "http://localhost:3000/film?special_features=is.null" -X DELETE
+```
+
+- Deletions also support **Prefer: return=representation** plus Vertical Filtering (Columns).
+
+- You can limit the amount of affected rows by Update or Delete with the **limit** query parameter. For this, you must add an explicit **order** on a unique column(s).

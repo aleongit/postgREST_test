@@ -493,6 +493,62 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "/film?special_features=is.null",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/film?special_features=is.null",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"film"
+					],
+					"query": [
+						{
+							"key": "special_features",
+							"value": "is.null"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/film?special_features=is.null",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidG9kb191c2VyIn0.3UW2DAERMO--EAUrET80WhjVgl8hLSxcJGDcnI84w3Q",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/film?special_features=is.null",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"film"
+					],
+					"query": [
+						{
+							"key": "special_features",
+							"value": "is.null"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

@@ -43,3 +43,5 @@ SELECT DISTINCT release_year FROM film;
 SELECT film_id, title, release_year FROM film ORDER BY title asc;
 
 SELECT * FROM film ORDER BY film_id desc;
+
+SELECT * FROM film WHERE special_features IS NULL;
