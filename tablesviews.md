@@ -1,4 +1,4 @@
-# Test Tables and Views
+# Tables and Views
 
 - All views and tables of the exposed schema and accessible by the active database role are available for querying. They are exposed in one-level deep routes.
 

@@ -25,17 +25,18 @@ PostgREST is a standalone web server that turns your PostgreSQL database directl
 
 - [Tutorial 0 - Get it Running](tutorial0.md)
 - [Tutorial 1 - The Golden Key](tutorial1.md)
-- [Tables and Views](tablesviews.md)
+- [Tutorial 2 - Tables and Views](tablesviews.md)
+- [Tutorial 3 - Resource Embedding](resource-embedding.md)
 
 
-## Run Tutorial
+## Run for Tutorial 0 and 1
 - in schema **api** of the database **postgres**
 ```
 cd postgREST_test
 postgrest tutorial.conf
 ```
 
-## Run Tables and Views
+## Run for Tutorial 2 and 3
 - in schema **public** of the database **dvdrental**
 ```
 cd postgREST_test
@@ -43,7 +44,7 @@ postgrest dvdrental.conf
 ```
 
 
-## Sample for Tables and Views
+## Sample Database for Tutorial 2 and 3
 ```
 Load PostgreSQL Sample Database
 https://www.postgresqltutorial.com/postgresql-getting-started/load-postgresql-sample-database/
@@ -71,6 +72,7 @@ psql -U postgres
 - https://postgrest.org/en/stable/tutorials/tut0.html
 - https://postgrest.org/en/stable/tutorials/tut1.html#tut1
 - https://postgrest.org/en/stable/references/api/tables_views.html
+- https://postgrest.org/en/stable/references/api/resource_embedding.html
 
 + **Password generator in cmd batch**
 - https://superuser.com/questions/280802/what-command-line-tool-can-generate-passwords-on-windows
