@@ -8,10 +8,10 @@ set "set[4]=~!@#$%%"                     &  set "len[4]=6"   &  set "num[4]=0"
 set "digits=32"
 setlocal EnableDelayedExpansion
 
-rem Create a list of 10 random numbers between 1 and 4;
+rem Create a list of n random numbers between 1 and 4;
 rem the condition is that it must be at least one digit of each one
 
-rem Initialize the list with 10 numbers
+rem Initialize the list with n numbers
 set "list="
 for /L %%i in (1,1,!digits!) do (
    set /A rnd=!random! %% 4 + 1
