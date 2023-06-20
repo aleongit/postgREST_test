@@ -549,6 +549,280 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "/city?select=city_id,city,country(name:country)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/city?select=city_id,city,country(name:country)",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"city"
+					],
+					"query": [
+						{
+							"key": "select",
+							"value": "city_id,city,country(name:country)"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/country?select=country_id,country,city(city_id,city)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/country?select=country_id,country,city(city_id,city)",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"country"
+					],
+					"query": [
+						{
+							"key": "select",
+							"value": "country_id,country,city(city_id,city)"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/actor?select=first_name,last_name,film(title)&film.order=title.asc",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/actor?select=first_name,last_name,film(title)&film.order=title.asc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"actor"
+					],
+					"query": [
+						{
+							"key": "select",
+							"value": "first_name,last_name,film(title)"
+						},
+						{
+							"key": "film.order",
+							"value": "title.asc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/film?select=title,actor(first_name,last_name)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/film?select=title,actor(first_name,last_name)",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"film"
+					],
+					"query": [
+						{
+							"key": "select",
+							"value": "title,actor(first_name,last_name)"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/actor?select=first_name,last_name,film_actor(film(title,length))",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/actor?select=first_name,last_name,film_actor(film(title,length))",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"actor"
+					],
+					"query": [
+						{
+							"key": "select",
+							"value": "first_name,last_name,film_actor(film(title,length))"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/film?select=*,actor(*)&actor.order=last_name,first_name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/film?select=*,actor(*)&actor.order=last_name,first_name",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"film"
+					],
+					"query": [
+						{
+							"key": "select",
+							"value": "*,actor(*)"
+						},
+						{
+							"key": "actor.order",
+							"value": "last_name,first_name"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/film?select=*,film_actor(*)&film_actor.actor_id=in.(1,2,3)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/film?select=*,film_actor(*)&film_actor.actor_id=in.(1,2,3)",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"film"
+					],
+					"query": [
+						{
+							"key": "select",
+							"value": "*,film_actor(*)"
+						},
+						{
+							"key": "film_actor.actor_id",
+							"value": "in.(1,2,3)"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/film?select=title,actor(first_name,last_name)&actor.first_name=eq.Penelope",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/film?select=title,actor(first_name,last_name)&actor.first_name=eq.Penelope",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"film"
+					],
+					"query": [
+						{
+							"key": "select",
+							"value": "title,actor(first_name,last_name)"
+						},
+						{
+							"key": "actor.first_name",
+							"value": "eq.Penelope"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/film?select=title,actor!inner(first_name,last_name)&actor.first_name=eq.Penelope",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/film?select=title,actor!inner(first_name,last_name)&actor.first_name=eq.Penelope",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"film"
+					],
+					"query": [
+						{
+							"key": "select",
+							"value": "title,actor!inner(first_name,last_name)"
+						},
+						{
+							"key": "actor.first_name",
+							"value": "eq.Penelope"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/city?select=city,country(country)&order=country(country).desc",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/city?select=city,country(country)&order=country(country).desc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"city"
+					],
+					"query": [
+						{
+							"key": "select",
+							"value": "city,country(country)"
+						},
+						{
+							"key": "order",
+							"value": "country(country).desc"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
