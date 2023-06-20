@@ -132,6 +132,32 @@ curl "http://localhost:3000/actor?select=first_name,last_name,film(title)&film.o
 curl "http://localhost:3000/actor?select=first_name,last_name,film_actor(film(title,length))"
 ```
 
+```
+[
+    {
+        "first_name": "Penelope",
+        "last_name": "Guiness",
+        "film_actor": [
+            {
+                "film": {
+                    "title": "Academy Dinosaur",
+                    "length": 86
+                }
+            },
+        ...
+            {
+                "film": {
+                    "title": "Bulworth Commandments",
+                    "length": 61
+                }
+            }
+        ]
+    },
+  ...
+...
+]
+```
+
 
 ## Embedded Filters
 
